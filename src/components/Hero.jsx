@@ -32,7 +32,7 @@ const handleVideoLoad = () => {
             className="origin-center">
               <video
                 ref={nextVideoRef}
-                src={getVideoSrc(index => currentIndexndex + 1)}
+                src={getVideoSrc(index:currentIndexndex + 1)}
                 loop
                 muted
                 id='current-video'
