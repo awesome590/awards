@@ -27,8 +27,8 @@ const upcomingVideoIndex = (currentIndex % totalVideos) + 1
 
   useGSAP(() => {
     if(hasClicked) {
-      gsap.set("#next-video", { visibility: "visible" })
-      gsap.to('#next-video', {
+      gsap.set("#nextVideo", { visibility: "visible" })
+      gsap.to('#nextVideo', {
         transformOrigin: 'center center',
         scale: 1,
         width: '100%',
