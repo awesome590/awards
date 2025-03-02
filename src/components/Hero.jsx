@@ -22,13 +22,12 @@ const upcomingVideoIndex = (currentIndex % totalVideos) + 1
   const handleMiniVdClick = () => {
     setHasClicked(true)
 
-    setCurrentIndex(upcomingVideoIndex)
+    setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1)
   }
 
   useGSAP(() => {
     if(hasClicked) {
-      gsap.set('#next-video', {visibility: 'visible'})
-
+      gsap.set("#next-video", { visibility: "visible" })
       gsap.to('#next-video', {
         transformOrigin: 'center center',
         scale: 1,
@@ -38,7 +37,6 @@ const upcomingVideoIndex = (currentIndex % totalVideos) + 1
         ease: 'power1.inOut',
         onStart: () => nextVideoRef.current.play(),
       })
-
       gsap.from('#current-video', {
         transformOrigin: 'center center',
         scale: 0,
@@ -62,7 +60,7 @@ const upcomingVideoIndex = (currentIndex % totalVideos) + 1
             ease-in hover:scale-100 hover:opacity-100">
               <video
                 ref={nextVideoRef}
-                src={getVideoSrc(upcomingVideoIndex)}
+                src={getVideoSrc((currentIndex % totalVideos) + 1)}
                 loop
                 muted
                 id="current-video"
